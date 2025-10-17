@@ -1,0 +1,11 @@
+{
+  "base-sepolia": {
+    "Hub": {
+      "address": "0xf2CCA756D7dE98d54ed00697EA8Cf50D71ea0Dd1",
+      "startBlock": 32475130
+    },
+    "IDRC": {
+      "address": "0xD3723bD07766d4993FBc936bEA1895227B556ea3"
+    }
+  }
+}
