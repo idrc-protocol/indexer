@@ -1,21 +1,40 @@
 {
-  "name": "idrc",
+  "name": "idrc-indexer",
+  "version": "1.0.0",
+  "description": "IDRC protocol subgraph indexer for Goldsky",
   "license": "UNLICENSED",
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ idrc",
+    "test": "graph test",
+    "prepare": "yarn codegen && yarn build",
+    "deploy:goldsky": "goldsky subgraph deploy idrc-indexer/1.0.0 --path .",
+    "deploy:goldsky:prod": "goldsky subgraph deploy idrc-indexer/prod --path .",
+    "status": "goldsky subgraph list",
+    "logs": "goldsky subgraph logs idrc-indexer/1.0.0",
+    "logs:prod": "goldsky subgraph logs idrc-indexer/prod",
+    "delete": "goldsky subgraph delete idrc-indexer/1.0.0",
     "create-local": "graph create --node http://localhost:8020/ idrc",
     "remove-local": "graph remove --node http://localhost:8020/ idrc",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 idrc",
-    "test": "graph test"
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 idrc"
   },
   "dependencies": {
-    "@graphprotocol/graph-cli": "0.97.1",
+    "@graphprotocol/graph-cli": "^0.98.1",
     "@graphprotocol/graph-ts": "0.37.0"
   },
   "devDependencies": {
     "matchstick-as": "0.6.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/idrc"
+  },
+  "keywords": [
+    "subgraph",
+    "goldsky",
+    "ethereum",
+    "defi",
+    "indexer"
+  ],
   "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

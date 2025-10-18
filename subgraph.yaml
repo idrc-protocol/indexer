@@ -92,3 +92,47 @@ dataSources:
         - event: Upgraded(indexed address)
           handler: handleUpgraded
       file: ./src/idrc.ts
+  - kind: ethereum
+    name: RewardDistributor
+    network: base-sepolia
+    source:
+      address: "0xA77C8059B011Ad0DB426623d1c1B985E53fdb7db"
+      abi: RewardDistributor
+      startBlock: 32475130
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.9
+      language: wasm/assemblyscript
+      entities:
+        - RewardInjected
+        - RewardDistributed
+        - RewardClaimed
+        - RewardUpdated
+        - RewardInitialized
+        - RewardOwnershipTransferred
+        - RewardRoleGranted
+        - RewardRoleRevoked
+        - RewardUpgraded
+      abis:
+        - name: RewardDistributor
+          file: ./abis/RewardDistributor.json
+      eventHandlers:
+        - event: RewardInjected(uint256,uint256)
+          handler: handleRewardInjected
+        - event: RewardDistributed(uint256,uint256)
+          handler: handleRewardDistributed
+        - event: RewardClaimed(indexed address,uint256)
+          handler: handleRewardClaimed
+        - event: RewardUpdated(indexed address,uint256)
+          handler: handleRewardUpdated
+        - event: Initialized(uint64)
+          handler: handleInitialized
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: RoleGranted(indexed bytes32,indexed address,indexed address)
+          handler: handleRoleGranted
+        - event: RoleRevoked(indexed bytes32,indexed address,indexed address)
+          handler: handleRoleRevoked
+        - event: Upgraded(indexed address)
+          handler: handleUpgraded
+      file: ./src/rewardDistributor.ts

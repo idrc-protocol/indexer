@@ -6,6 +6,10 @@
     },
     "IDRC": {
       "address": "0xD3723bD07766d4993FBc936bEA1895227B556ea3"
+    },
+    "RewardDistributor": {
+      "address": "0xA77C8059B011Ad0DB426623d1c1B985E53fdb7db",
+      "startBlock": 32475150
     }
   }
 }
